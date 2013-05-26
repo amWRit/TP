@@ -1,27 +1,38 @@
-<h1>Listing projects</h1>
+ <div class="container">
+        <div class="nav-collapse">
+          <ul class="nav">
+            <p class ="well" style="font-family:arial;color:#C0C0C0;font-size:30px;">Listing projects</p>
+          </ul>
+      </div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <div class = "well">
+          <table class="table table-striped">
+             <thead>  
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
 
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.title %></td>
-    <td><%= project.description %></td>
-    <td><%= project.status %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+          <% @projects.each do |project| %>
+           <tbody>  
+                <tr>
+                  <td><%= project.title %></td>
+                  <td><%= project.description %></td>
+                  <td><%= project.status %></td>
+                  <td><%= link_to 'Show', project %></td>
+                  <td><%= link_to 'Edit', edit_project_path(project) %></td>
+                  <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+            </tbody>
+          <% end %>
+          </table>
 
-<br />
-
-<%= link_to 'New Project', new_project_path %>
+          <br />
+      </div>
+          <%= link_to 'New Project', new_project_path %>
+</div>

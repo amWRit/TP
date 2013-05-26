@@ -3,6 +3,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    # @tasks = Task.where(:project_id => @project.id)
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,6 +42,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+     params[:task][:project_id] = params[:project_id]
     @task = Task.new(params[:task])
 
     respond_to do |format|

@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
+<body class="container">
+		<div class ="well">	
+			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Project</h>
+		</div>
 
-<p>
-  <b>Title:</b>
-  <%= @project.title %>
-</p>
+		<div class ="well">	
+			<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
+			<p>
+			  <b>Title:</b>
+			  <%= @project.title %>
+			</p>
 
-<p>
-  <b>Status:</b>
-  <%= @project.status %>
-</p>
-<p>
-	<%= link_to "Create Tasks", new_task_path %>
-</p>
-<p>
-	<%= link_to "show Tasks", tasks_path %>
-</p>
+			<p>
+			  <b>Description:</b>
+			  <%= @project.description %>
+			</p>
 
-<p><%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %></p>
+			<p>
+			  <b>Status:</b>
+			  <%= @project.status %>
+			</p>
+			<p>
+				<%= link_to "Create Tasks", new_task_path %>
+			</p>
+			<p>
+				<%= link_to "show Tasks", tasks_path %>
+			</p>
+
+			<p><%= link_to 'Edit', edit_project_path(@project) %> |
+			<%= link_to 'Back', projects_path %></p>
+		</div>
+</body>

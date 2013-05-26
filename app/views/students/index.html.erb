@@ -10,18 +10,14 @@
 
 </head>
 
-<body>
-	<p>
-		<% if user_signed_in? %>
-			<li><%=link_to "Show my Projects", projects_path%></li>
-			<li><%= link_to "Create Project", new_project_path %></li>
-			<%else%>
-			<%= link_to "Sign in to view Projects", new_user_session_path%>
+<body  class="container">
+	<div class ="well">	
+			<% if user_signed_in? %>
+				<li><%=link_to "Show my Projects", projects_path%></li>
+				<li><%= link_to "Create Project", new_project_path %></li>
+				<%else%>
+				<%= link_to "Sign in to view Projects", new_user_session_path%>
 			<%end%>
-	</p>
-	
-
-
-	
+	</div>
 </body>
 

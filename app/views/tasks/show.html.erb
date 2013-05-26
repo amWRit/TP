@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
+<body class="container">
+		<div class ="well">	
+			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Task</h>
+		</div>
 
-<p>
-  <b>Title:</b>
-  <%= @task.title %>
-</p>
+		<div class ="well">	
+				<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Description:</b>
-  <%= @task.description %>
-</p>
+				<p>
+				  <b>Title:</b>
+				  <%= @task.title %>
+				</p>
 
-<p>
-  <b>Status:</b>
-  <%= @task.status %>
-</p>
+				<p>
+				  <b>Description:</b>
+				  <%= @task.description %>
+				</p>
 
-<p>
-  <b>Due date:</b>
-  <%= @task.due_date %>
-</p>
+				<p>
+				  <b>Status:</b>
+				  <%= @task.status %>
+				</p>
+
+				<p>
+				  <b>Due date:</b>
+				  <%= @task.due_date %>
+				</p>
 
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+				<%= link_to 'Edit', edit_task_path(@task) %> |
+				<%= link_to 'Back', tasks_path %>
+		</div>
+</body>
