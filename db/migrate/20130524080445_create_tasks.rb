@@ -5,8 +5,10 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.boolean :status
       t.date :due_date
+      t.references :project
 
       t.timestamps
     end
+    add_index :tasks, :task_id
   end
 end

@@ -7,6 +7,11 @@
 			<p id="notice"><%= notice %></p>
 
 			<p>
+			  <b>Project id:</b>
+			  <%= params[:id] %>
+			</p>
+
+			<p>
 			  <b>Title:</b>
 			  <%= @project.title %>
 			</p>
@@ -20,14 +25,17 @@
 			  <b>Status:</b>
 			  <%= @project.status %>
 			</p>
-			<p>
-				<%= link_to "Create Tasks", new_task_path %>
-			</p>
-			<p>
-				<%= link_to "show Tasks", tasks_path %>
-			</p>
+			
+			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Tasks</h>
 
-			<p><%= link_to 'Edit', edit_project_path(@project) %> |
-			<%= link_to 'Back', projects_path %></p>
+
+			<%= render @project.tasks %>
+			 
+			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Add a task</h>
+			<%= render "tasks/form" %>
+						 
+			<%= link_to 'Edit Project', edit_project_path(@project) %> |
+			<%= link_to 'Back to Projects', projects_path %> |
 		</div>
+
 </body>

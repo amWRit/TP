@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
+  
   def index
+    #@tasks = Task.all
     @tasks = Task.all
-    # @tasks = Task.where(:project_id => @project.id)
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +26,10 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
+
+    #@project = project
+    #@myid = id
+    #@task = Project.tasks.find(params[:id])
     @task = Task.new
 
     respond_to do |format|
@@ -36,24 +40,30 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    
+     @project = Project.find(params[:project_id])
+    @task = @project.tasks.find(params[:id])
   end
 
   # POST /tasks
   # POST /tasks.json
-  def create
-     params[:task][:project_id] = params[:project_id]
-    @task = Task.new(params[:task])
+  def create   
+   
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.create(params[:task])
+    redirect_to project_path(@project)
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render json: @task, status: :created, location: @task }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @task.save
+    #     #puts @myid
+    #     #@task.update_attributes(:project_id => @myid)
+    #     format.html { redirect_to project_tasks_path, notice:  'Task was successfully created.' }
+    #     format.json { render json: @task, status: :created, location: @task }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @task.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PUT /tasks/1
@@ -74,13 +84,10 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
-  def destroy
-    @task = Task.find(params[:id])
+   def destroy
+    @project = Project.find(params[:task_id])
+    @task = @project.tasks.find(params[:id])
     @task.destroy
-
-    respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :no_content }
-    end
+    redirect_to project_path(@project)
   end
 end

@@ -43,12 +43,14 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     params[:project][:student_id] = current_user.id
-    @project = Project.new(params[:project])
+    @project = Project.new(params[:project])   
+    #add_value_to_cookie(@item.id)
+    #session[:p_id] ||= params[:id]
     
-
-
+    
     respond_to do |format|
       if @project.save
+         
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else

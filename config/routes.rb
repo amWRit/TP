@@ -2,8 +2,12 @@ Registration::Application.routes.draw do
   devise_for :users
     root :to => "students#index"
 
-    resources :tasks
-    resources :projects
+    #resources :tasks
+    resources :projects do
+      resources :tasks 
+        match '/projects/:project_id/tasks/:id' => 'catalog#view'
+    end
+
 
  # get "students/index"
 

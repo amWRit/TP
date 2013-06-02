@@ -27,8 +27,8 @@
                   <td><%= task.description %></td>
                   <td><%= task.status %></td>
                   <td><%= task.due_date %></td>
-                  <td><%= link_to 'Show', task %></td>
-                  <td><%= link_to 'Edit', edit_task_path(task) %></td>
+                  <td><%= link_to 'Show', project_task_path %></td>
+                  <td><%= link_to 'Edit', edit_project_task_path(task) %></td>
                   <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
                 </tbody>
@@ -41,7 +41,8 @@
 
       <div class="nav-collapse">
           <ul class="nav">
-              <p class ="well" style="font-family:arial;color:#C0C0C0;font-size:30px;"><%= link_to 'New Task', new_task_path %></p>
+              <p class ="well" style="font-family:arial;color:#C0C0C0;font-size:30px;"><%= link_to 'New Task', new_project_task_path %></p>
           </ul>
       </div>
 </div>
+  <%= params[:id] %>
