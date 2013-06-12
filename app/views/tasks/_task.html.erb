@@ -1,0 +1,33 @@
+				<p>
+
+					<b>task id:</b>
+				  <%= task.id %> |
+				  <b>Title:</b>
+				  <%= task.title %> |
+
+					<%= link_to 'show',project_task_path(@project.id, task.id) %>
+				</p>
+
+
+
+				<!-- <p>
+				  <b>Description:</b>
+				  <%= task.description %>
+				</p>
+
+				<p>
+				  <b>Status:</b>
+				  <%= task.status %>
+				</p>
+
+				<p>
+				  <b>Due date:</b>
+				  <%= task.due_date %>
+				</p>
+
+				<p> -->
+			<!-- 	<%= link_to 'Edit', edit_project_task_path(task.project, task) %> |
+				 <%= link_to 'Destroy Task', [task.project, task],
+				               :confirm => 'Are you sure?',
+				               :method => :delete %> -->
+				<!-- </p> -->

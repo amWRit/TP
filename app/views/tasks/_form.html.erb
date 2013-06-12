@@ -1,19 +1,21 @@
 <%= form_for([@project, @project.tasks.build]) do |f| %>
-
+<br>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="field" >
+    
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :style => "height:100px;" %>
+    
   </div>
   <div class="field">
-    <%= f.label :status %><br />
+    <%= f.label :status %>
     <%= f.check_box :status %>
   </div>
   <div class="field">
-    <%= f.label :due_date %><br />
+    <%= f.label :due_date %>
     <%= f.date_select :due_date %>
   </div>
   <div class="actions">

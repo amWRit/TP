@@ -9,32 +9,37 @@
 
 <body>
 
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top navbar-inverse">
 	    <div class="navbar-inner">
 	      <div class="container">
 	        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	          <span class="icon-bar"><%= link_to image_tag('project_tracker_logo_small.png',:size => "70x70"), root_path, id: "logo" %> </span>
+
 	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
+
+	          <span class="icon-bar"><%= link_to "ProjectTracker", root_path, :class => 'brand' %></span>
+	          
 	        </a>
 
-	         <%= link_to image_tag('project_tracker_logo_small.png',:size => "70x70"), root_path, id: "logo" %> 
-	        
-	      	<%= link_to "ProjectTracker", root_path, :class => 'brand' %>
 	        <div class="nav-collapse">
 	          <ul class="nav">
-	       			<ul class="nav">
+	       			<ul class="nav" >
 					  <% if user_signed_in? %>
-					    <li>
-					    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+					    <li class="divider-vertical">
+					    <%= link_to('Logout', destroy_user_session_path, :method=>'delete')  %>
+					    </li>
+
+					    <li class="divider-vertical"> 
+					    
+					    	<%= link_to('Signed in as ' + current_user.email ) %>
 					    </li>
 					  <% else %>
-					    <li>
+					    <li class="divider-vertical">
 					    <%= link_to('Login', new_user_session_path)  %>
 					    </li>
 					  <% end %>
 					  <% if user_signed_in? %>
-					    <li>
+					    <li class="divider-vertical">
 					    <%= link_to('Edit account', edit_user_registration_path) %>
 					    </li>
 					  <% else %>

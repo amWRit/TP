@@ -25,13 +25,18 @@
 			  <b>Status:</b>
 			  <%= @project.status %>
 			</p>
+
+			<br>
 			
 			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Tasks</h>
-
+			 <br><br>
 
 			<%= render @project.tasks %>
+
+			<br>
 			 
 			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Add a task</h>
+			<br>
 			<%= render "tasks/form" %>
 						 
 			<%= link_to 'Edit Project', edit_project_path(@project) %> |
