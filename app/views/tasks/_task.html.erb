@@ -1,12 +1,15 @@
-				<p>
+<p>
 
-					<b>task id:</b>
-				  <%= task.id %> |
-				  <b>Title:</b>
-				  <%= task.title %> |
-
-					<%= link_to 'show',project_task_path(@project.id, task.id) %>
-				</p>
+	<table class="table table-striped">
+    <tbody>  
+      <tr>
+        <td><%= task.id  %></td>
+        <td><%= task.title %></td>
+        <td><%=link_to 'show',project_task_path(@project.id, task.id) %></td>
+      </tr>
+    </tbody>
+  </table>
+</p>
 
 
 
