@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
     #@project = project
     #@myid = id
-    #@task = Project.tasks.find(params[:id])
+    @project = Project.tasks.find(params[:id])
     @task = Task.new
 
     respond_to do |format|
@@ -40,8 +40,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    
-     @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     @task = @project.tasks.find(params[:id])
   end
 
@@ -73,7 +72,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to project_task_path(@task), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
