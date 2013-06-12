@@ -1,66 +1,7 @@
-<body class="container">
-		<div class ="well">	
-			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Project</h>
-		</div>
-
-		<div class ="well">	
-			<p id="notice"><%= notice %></p>
-
-			<p>
-			  <b>Project id:</b>
-			  <%= params[:id] %>
-			</p>
-
-			<p>
-			  <b>Title:</b>
-			  <%= @project.title %>
-			</p>
-
-			<p>
-			  <b>Description:</b>
-			  <%= @project.description %>
-			</p>
-
-			<p>
-			  <b>Status:</b>
-			  <%= @project.status %>
-			</p>
-
-			<br>
-			
-			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Tasks</h>
-			 <br><br>
-
-
-		<table class="table table-striped">	 
-			<thead>  
-	      <tr>
-	      	<th>Id</th>
-	        <th>Title</th>
-	        <th>Remarks</th>
-	      </tr>
-	    </thead>
-  	</table>
-
-			<%= render @project.tasks %>
-
-			<br>
-			 
-			<!-- <h style="font-family:arial;color:#C0C0C0;font-size:30px;">Add a task</h> -->
-			<br>
-			<!-- <%= render "tasks/form" %> -->
-						 
-			<%= link_to 'Edit Project', edit_project_path(@project) %> |
-			<%= link_to 'Back to Projects', projects_path %> |
-		</div>
-
-
-
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>jQuery UI Effects - Show Demo</title>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -78,7 +19,6 @@ function runEffect() {
 // get effect type from
 var selectedEffect = "bounce"
 // most effect types need no options passed by default
-//effect types
 // <option value="blind">Blind</option>
 // <option value="bounce">Bounce</option>
 // <option value="clip">Clip</option>
@@ -117,17 +57,70 @@ $( "#effect" ).hide();
 });
 </script>
 </head>
-<body>
-<div class="toggler">
-<div id="effect" class="ui-widget-content ui-corner-all">
-	<%= render "tasks/form" %>
-</div>
 
-<a href="#" id="button" class="ui-state-default ui-corner-all">Add a task</a>
-</div>
+<body class="container">
+		<div class ="well">	
+			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Project</h>
+		</div>
+
+		<div class ="well">	
+			<p id="notice"><%= notice %></p>
+
+			<p>
+			  <b>Project id:</b>
+			  <%= params[:id] %>
+			</p>
+
+			<p>
+			  <b>Title:</b>
+			  <%= @project.title %>
+			</p>
+
+			<p>
+			  <b>Description:</b>
+			  <%= @project.description %>
+			</p>
+
+			<p>
+			  <b>Status:</b>
+			  <%= @project.status %>
+			</p>
+
+			<br>
+			
+			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Tasks</h>
+			 <br><br>
 
 
-</body>
+			<table class="table table-striped">	 
+				<thead>  
+		      <tr>
+		      	<th>Id</th>
+		        <th>Title</th>
+		        <th>Remarks</th>
+		      </tr>
+		    </thead>
+	  	</table>
+
+				<%= render @project.tasks %>
+
+				<br>
+				 
+				<!-- <h style="font-family:arial;color:#C0C0C0;font-size:30px;">Add a task</h> -->
+				<br>
+				<!-- <%= render "tasks/form" %> -->
+							 
+				<%= link_to 'Edit Project', edit_project_path(@project) %> |
+				<%= link_to 'Back to Projects', projects_path %> |
+		</div>
+
+		<div class="toggler">
+		<div id="effect" class="ui-widget-content ui-corner-all">
+			<%= render "tasks/form" %>
+		</div>
+
+		<a href="#" id="button" class="ui-state-default ui-corner-all">Add a task</a>
+		</div>
+
+	</body>
 </html>
-
-</body>
