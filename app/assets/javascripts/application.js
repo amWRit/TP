@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+// $(document).ready(function(){
+//   console.log("test")
+//   $('.task_show').click(function(){
+  
+//     var task_id = $(this).data("task-id");
+//     $("#"+task_id).dialog();
+//     $(".ui-dialog #"+task_id).removeClass("hidden");
+//   });
+// });
