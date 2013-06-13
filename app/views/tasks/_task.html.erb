@@ -1,17 +1,28 @@
-<p>
+
 
 	<table class="table table-striped">
     <tbody>  
-      <tr>
-        <td><%= task.id  %></td>
+      <tr id="task_<%= task.id %>">
+        <td><%= task.id  %>
+        	<div class="hidden" id="show_task_<%= task.id %>" %>
+        		<%= render 'tasks/display', :task => task %>
+        	</div>
+        </td>
         <td><%= task.title %></td>
-        <td><%=link_to 'show',project_task_path(@project.id, task.id) %></td>
+        <td><a href="#" class="task_show" data-task-id="show_task_<%= task.id %>">Show</a></td>
       </tr>
     </tbody>
   </table>
-</p>
-
-
+<script>
+$(document).ready(function(){
+  $('.task_show').click(function(){
+  
+    var task_id = $(this).data("task-id");
+    $("#"+task_id).dialog();
+    $(".ui-dialog #"+task_id).removeClass("hidden");
+  });
+});
+</script>	
 
 				<!-- <p>
 				  <b>Description:</b>

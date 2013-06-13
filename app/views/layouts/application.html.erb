@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
   <title>Project Tracker</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+ 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/resources/demos/style.css" />
+	<style>
+		.toggler { width: 500px; height: 200px; }
+		#button { padding: .5em 1em; text-decoration: none; }
+		#effect { width: 240px; height: 535px; padding: 0.4em; position: relative; }
+		#effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+	</style>
+
+	<script>
+		$(function() {
+		// run the currently selected effect
+		function runEffect() {
+		// get effect type from
+		var selectedEffect = "bounce"
+		// most effect types need no options passed by default
+		// <option value="blind">Blind</option>
+		// <option value="bounce">Bounce</option>
+		// <option value="clip">Clip</option>
+		// <option value="drop">Drop</option>
+		// <option value="explode">Explode</option>
+		// <option value="fold">Fold</option>
+		// <option value="highlight">Highlight</option>
+		// <option value="puff">Puff</option>
+		// <option value="pulsate">Pulsate</option>
+		// <option value="scale">Scale</option>
+		// <option value="shake">Shake</option>
+		// <option value="size">Size</option>
+		// <option value="slide">Slide</option>
+		var options = {};
+		// some effects have required parameters
+		if ( selectedEffect === "scale" ) {
+		options = { percent: 100 };
+		} else if ( selectedEffect === "size" ) {
+		options = { to: { width: 280, height: 185 } };
+		}
+		// run the effect
+		$( "#effect" ).show( selectedEffect, options, 500, callback );
+		};
+		//callback function to bring a hidden box back
+		function callback() {
+		setTimeout(function() {
+		$( "#effect:visible" ).removeAttr( "style" );
+		}, 1000 );
+		};
+		// set effect from select menu value
+		$( "#button" ).click(function() {
+		runEffect();
+		return false;
+		});
+		$( "#effect" ).hide();
+		});
+	</script>
+
 </head>
 
 <body>
