@@ -1,0 +1,2 @@
+$("#task_<%= @task.id %>").append("<%= escape_javascript(render 'display' , :task => @task )%>"); 
+$("#task_<%= @task.id %>").dialog();
