@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+</head>
+
 <body class="container">
 		<div class ="well">	
 			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Project</h>
@@ -31,16 +37,36 @@
 			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Tasks</h>
 			 <br><br>
 
-			<%= render @project.tasks %>
 
-			<br>
-			 
-			<h style="font-family:arial;color:#C0C0C0;font-size:30px;">Add a task</h>
-			<br>
-			<%= render "tasks/form" %>
-						 
-			<%= link_to 'Edit Project', edit_project_path(@project) %> |
-			<%= link_to 'Back to Projects', projects_path %> |
-		</div>
+			<table class="table table-striped">	 
+				<thead>  
+		      <tr>
+		      	<th>Id</th>
+		        <th>Title</th>
+		        <th>Remarks</th>
+		      </tr>
+		    </thead>
+	  	</table>
 
-</body>
+				<%= render @project.tasks %>
+
+				<br>
+				 
+				<!-- <h style="font-family:arial;color:#C0C0C0;font-size:30px;">Add a task</h> -->
+				<br>
+				<!-- <%= render "tasks/form" %> -->
+							 
+				<%= link_to 'Edit Project', edit_project_path(@project) %> |
+				<%= link_to 'Back to Projects', projects_path %> |
+			</div>
+
+			<div class="toggler">
+				<div id="effect" class="ui-widget-content ui-corner-all">
+					<%= render "tasks/form" %>
+				</div>
+
+				<a href="#" id="button" class="ui-state-default ui-corner-all">Add a task</a>
+			</div>
+
+	</body>
+</html>
