@@ -1,5 +1,7 @@
 Registration::Application.routes.draw do
   devise_for :users
+
+    match '/projects/display_tree' => 'projects#display_tree'
     root :to => "students#index"
 
     #resources :tasks
@@ -7,6 +9,7 @@ Registration::Application.routes.draw do
       resources :tasks 
         match '/projects/:project_id/tasks/:id' => 'catalog#view'
     end
+
 
 
  # get "students/index"

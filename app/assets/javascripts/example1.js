@@ -761,7 +761,6 @@ function init(){
     };
     //end
 
-    
     //init Spacetree
     //Create a new ST instance
     var st = new $jit.ST({
