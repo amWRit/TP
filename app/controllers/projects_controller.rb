@@ -88,4 +88,7 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def display_tree
+  end
 end
